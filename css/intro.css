@@ -1,0 +1,105 @@
+.intro-page {
+  background: url("/images/Rectangle\ 14.png") no-repeat center center/cover;
+  color: black;
+  padding: 50px 80px;
+  min-height: 100vh;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+/* --- Phần BACK + ABOUT US --- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.back-link {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 22px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.back-link:hover {
+  color: #ffccff;
+  transform: translateX(-5px);
+}
+
+h2 {
+  font-style: italic;
+  font-size: 35px;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  padding: 0 40px;
+  text-align: justify;
+  position: relative;
+}
+
+/* --- Gạch dọc ngăn giữa các cột --- */
+.column:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.left,
+.middle,
+.right {
+  flex: 1;
+  padding: 25px;
+}
+
+h3 {
+  font-weight: 900;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-weight: 800;
+  font-size: 25px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .column {
+    padding: 20px 0;
+  }
+
+  .column:not(:last-child)::after {
+    display: none;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

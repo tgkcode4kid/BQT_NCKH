@@ -1,0 +1,70 @@
+.about-section {
+  padding: 60px 80px;
+  text-align: left;
+}
+
+.about-section h2 {
+  font-size: 35px;
+  font-style: italic;
+  margin-bottom: 40px;
+  color: black;
+}
+
+.about-section h2 span {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: black;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 330px;
+}
+
+.img-wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 600px;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.img-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.img-wrap p {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  width: 90%;
+  line-height: 1.4;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  transition: color 0.3s;
+}
+
+.img-wrap:hover p {
+  color: #ffdfef; 
+}
