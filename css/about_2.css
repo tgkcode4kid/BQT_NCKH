@@ -1,0 +1,255 @@
+/* --- NỀN CHÍNH --- */
+.dolphin-section {
+  background: url("../images/about_2_bg.png") no-repeat center center/cover;
+  min-height: 100vh;
+  padding: 50px 80px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  position: relative;
+}
+
+/* --- BACK + ABOUT US --- */
+.top-bar {
+  position: fixed;
+  top: 30px;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+}
+.back-link {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.3s;
+}
+.back-link:hover {
+  color: #ffccff;
+  transform: translateX(-5px);
+}
+h2 {
+  font-style: italic;
+  font-size: 35px;
+  color: black;
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: black;
+    margin-bottom: 12px;
+}
+
+/* --- NỘI DUNG CHÍNH --- */
+.dolphin-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 100px;
+  width: 90%;
+  margin: 200px auto 0 auto;
+}
+.book-side,
+.dolphin-side {
+  text-align: center;
+}
+
+/* --- HÌNH ẢNH --- */
+.book-img,
+.dolphin-img {
+  width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.book-img:hover,
+.dolphin-img:hover {
+  transform: scale(1.06);
+}
+.dolphin-content h3 {
+  color: white;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* --- OVERLAY CHUNG --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* --- BOOK FULL SCREEN --- */
+.book-full {
+  background: url("../images/book_bg.png") no-repeat center center/cover;
+}
+
+.book-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 60px 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: #222;
+}
+
+/* --- KHUNG NỘI DUNG SÁCH --- */
+.book-content {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 40px 50px;
+  text-align: left;
+  line-height: 1.6;
+  backdrop-filter: blur(8px);
+  color: #111;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 700px;
+}
+
+/* --- TRANG SÁCH --- */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.page.hidden {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- NÚT LẬT TRANG Ở HAI GÓC DƯỚI --- */
+.page-btn {
+  position: absolute;
+  bottom: 50px;
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.page-btn:hover {
+  color: #ffccff;
+  transform: scale(1.2);
+}
+
+.left-btn {
+  left: 150px;
+}
+
+.right-btn {
+  right: 150px;
+}
+
+/* --- CÁ HEO FULL --- */
+.dolphin-full {
+  background: url("../images/dolphin_talk_bg.png") no-repeat center center/cover;
+}
+.dolphin-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 500px;
+}
+.talking-dolphin {
+  width: 350px;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- PHỤ ĐỀ --- */
+.subtitles {
+  margin-top: 40px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 30px;
+  border-radius: 12px;
+  width: 70%;
+  text-align: center;
+  line-height: 1.6;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  white-space: pre-wrap;
+  min-height: 100px;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+/* --- NÚT ĐÓNG --- */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 9999;
+}
+.close-btn:hover {
+  color: #ff90f0;
+  transform: scale(1.1);
+}
+
+/* --- HIỆU ỨNG --- */
+@keyframes fadeIn {
+  from { opacity: 0; } 
+  to { opacity: 1; }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .dolphin-content {
+    flex-direction: column;
+    margin-top: 180px;
+    gap: 60px;
+  }
+  .book-img,
+  .dolphin-img {
+    width: 80%;
+  }
+  .subtitles {
+    width: 90%;
+    font-size: 22px;
+  }
+  .book-page {
+    width: 90%;
+    padding: 30px;
+  }
+}

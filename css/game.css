@@ -1,0 +1,349 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 18px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  background: white;
+  color: #ffccff;
+  transform: scale(1.05);
+}
+
+/* --- MÀN 1 --- */
+.game-intro {
+  background: url("../images/game_1_bg.png") no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+}
+
+.intro-content h1 {
+  font-size: 65px;
+  font-weight: 900;
+  text-shadow: 3px 3px 10px #000;
+}
+
+.intro-content p {
+  font-size: 22px;
+  color: #000;
+  margin-top: 40px;
+  font-weight: 500;
+}
+
+.next-btn {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  font-size: 18px;
+  color: white;
+  background: none;
+  border: none;
+  font-style: italic;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  transform: scale(1.1);
+  color: #ff90f0;
+}
+
+/* --- MÀN 2 --- */
+.game-rules {
+  background: url("../images/game_2_bg.png") no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.rule-text {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 800;
+  color: black;
+}
+
+.rule-hint {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: #333;
+}
+
+.dolphin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  animation: dolphinAppear 2.5s ease-out forwards,
+    dolphinSwim 4s ease-in-out infinite 2.5s;
+}
+
+@keyframes dolphinAppear {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dolphinSwim {
+  0%,
+  100% {
+    transform: translate(-50%, -48%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -52%) scale(1.02);
+  }
+}
+
+/* --- MÀN 3 --- */
+.game-play {
+  background: url("../images/game_play_bg.png") no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* thanh tiến trình */
+/* thanh tiến trình */
+.progress-wrapper {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 55px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid #a8c4ff;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* nấc chia */
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(100% / 15 - 1px),
+    rgba(255, 255, 255, 0.4) calc(100% / 15 - 1px),
+    rgba(255, 255, 255, 0.4) calc(100% / 15)
+  );
+  z-index: 2;
+}
+
+/* phần màu chạy */
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 25px 0 0 25px;
+  width: 0%;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    #a2e6ff,
+    #83a0ff,
+    #b783ff,
+    #ff80d0,
+    #ffa56b
+  );
+  transition: width 0.6s ease-in-out;
+}
+
+/* cá trong thanh */
+.fish {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: 65px;
+  transition: left 0.6s ease-in-out;
+  z-index: 3;
+  animation: fishSwim 2s ease-in-out infinite;
+}
+
+@keyframes fishSwim {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-52%) scale(1.05);
+  }
+}
+
+.big-fish-container {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+}
+
+.big-fish {
+  width: 200px;
+  transition: transform 0.8s ease, opacity 0.5s ease;
+  animation: bigFishSwim 4s ease-in-out infinite;
+}
+
+.big-fish.scaling {
+  animation: none !important; /* ← tắt animation khi scale */
+}
+
+@keyframes bigFishSwim {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Nút trả lời */
+.answers {
+  position: absolute;
+  right: 3.5%;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.answer-btn {
+  font-size: 50px;
+  font-weight: 800;
+  color: black;
+  background: url("../images/basket.png") no-repeat center center/cover;
+  background-size: 100% 100%;
+  width: 350px;
+  height: 250px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-btn:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 999;
+}
+
+.game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.game-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrong-text {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+}
+
+.try-again-btn {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  background: transparent;
+  border: 3px solid white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.game-overlay.show .wrong-text,
+.game-overlay.show .try-again-btn {
+  opacity: 1;
+}
+
+.try-again-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.1);
+}

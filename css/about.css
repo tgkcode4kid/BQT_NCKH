@@ -1,6 +1,8 @@
 .about-section {
   padding: 60px 80px;
   text-align: left;
+  background: url("../images/about_bg.png") no-repeat center center/cover;
+  height: 100vh;
 }
 
 .about-section h2 {

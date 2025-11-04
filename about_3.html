@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bộ mô hình & Cá heo AI</title>
+    <link rel="stylesheet" href="css/about_3.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="dolphin-section">
+      <div class="top-bar">
+        <a href="about.html" class="back-link">BACK<br />⟵</a>
+        <h2><em>ABOUT US</em></h2>
+      </div>
+
+      <div class="dolphin-content">
+        <!-- Bên trái -->
+        <div class="book-side">
+          <img
+            src="./images/book.png"
+            alt="Book Icon"
+            class="book-img"
+            id="bookBtn"
+          />
+          <h3>BẤM VÀO ĐÂY ĐỂ ĐƯỢC NGHE KỂ CHUYỆN NHA</h3>
+        </div>
+
+        <!-- Bên phải -->
+        <div class="dolphin-side">
+          <img
+            src="./images/queen_dol.png"
+            alt="Dolphin Icon"
+            class="dolphin-img"
+            id="dolphinBtn"
+          />
+          <h3>CÁ HEO CÓ VÀI LỜI MUỐN NÓI!</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popup Sách -->
+    <div class="overlay book-full" id="bookOverlay">
+      <div class="book-scene">
+        <button class="close-btn">✖</button>
+
+        <!-- Vùng nội dung sách -->
+        <div class="book-content">
+          <div class="page" id="page1">
+            <!-- <h2>BỘ MÔ HÌNH</h2> -->
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Cá heo -->
+    <div class="overlay dolphin-full" id="dolphinOverlay">
+      <div class="dolphin-scene">
+        <button class="close-btn">✖</button>
+        <div class="dolphin-talk">
+          <img
+            src="./images/dolphin.png"
+            alt="Talking Dolphin"
+            class="talking-dolphin"
+          />
+          <div class="subtitles" id="subtitle"></div>
+          <audio id="dolphinAudio" src="./audio/audi_2.MP3"></audio>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/about_2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        overflow: hidden;
+        background: #000;
+        font-family: "Poppins", sans-serif;
+      }
+      .slider {
+        display: flex;
+        width: 400vw;
+        height: 100vh;
+        transition: transform 0.8s ease-in-out;
+      }
+      .slide {
+        width: 100vw;
+        height: 100vh;
+        flex-shrink: 0;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      #slide2 {
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        background: #0b0f1a;
+      }
+      .subslide {
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .subslide img {
+        max-width: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+      .arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        z-index: 15;
+      }
+      .arrow:hover {
+        color: #fff;
+      }
+      #prev {
+        left: 25px;
+      }
+      #next {
+        right: 25px;
+      }
+      #slide2::-webkit-scrollbar {
+        width: 8px;
+      }
+      #slide2::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+      }
+
+      /* --- Slide 4 --- */
+      #slide4 {
+        background: url("images/more_4.png") center/cover no-repeat;
+        overflow: hidden;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s ease-in-out;
+        z-index: 5;
+      }
+      .overlay img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #overlay1 {
+        transform: translateX(100%);
+      }
+      #overlay1.show {
+        transform: translateX(0);
+      }
+      #overlay1.hide {
+        transform: translateX(-100%);
+      }
+
+      #overlay2 {
+        transform: translateX(-100%);
+      }
+      #overlay2.show {
+        transform: translateX(0);
+      }
+      #overlay2.hide {
+        transform: translateX(100%);
+      }
+
+      .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 18px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .back-btn:hover {
+        background: white;
+        color: #ffccff;
+        transform: scale(1.05);
+      }
+
+      #slide5 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 4rem;
+        letter-spacing: 0.5px;
+      }
+
+      .ai-links {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        color: #fff;
+      }
+
+      /* Hai cột trái/phải */
+      .ai-links .col {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        max-width: 35%;
+      }
+
+      /* Căn chữ cho dễ đọc */
+      .ai-links .left {
+        text-align: left;
+      }
+
+      .ai-links .right {
+        text-align: right;
+      }
+
+      /* Link style */
+      .ai-links a {
+        color: #fff;
+        text-decoration: none;
+        line-height: 1.6;
+        word-break: break-all;
+        transition: color 0.3s, transform 0.3s;
+        font-weight: 500;
+        font-size: 1.1rem; /* 🔹 To hơn chút nữa */
+      }
+
+      .ai-links a:hover {
+        color: #ff80ff;
+        transform: scale(1.02);
+      }
+
+      /* Nếu bạn muốn nó trông nổi bật hơn trên nền */
+      #slide5::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35); /* 🔹 Lớp phủ làm nền dịu hơn */
+        z-index: 1;
+      }
+
+      .ai-links {
+        position: relative;
+        z-index: 2; /* 🔹 Đặt text nổi trên lớp phủ */
+      }
+    </style>
+  </head>
+  <body>
+    <button class="back-btn" onclick="goHome()">← BACK</button>
+
+    <div class="slider" id="slider">
+      <div
+        class="slide"
+        style="background-image: url('images/more_1.png')"
+      ></div>
+
+      <div class="slide" id="slide2">
+        <div class="subslide"><img src="./images/more_2.png" /></div>
+        <div class="subslide"><img src="./images/more_2_1.png" /></div>
+        <div class="subslide"><img src="./images/more_2_2.png" /></div>
+        <div class="subslide"><img src="./images/more_2_3.png" /></div>
+      </div>
+
+      <div
+        class="slide"
+        style="background-image: url('./images/more_3.png')"
+      ></div>
+
+      <div class="slide" id="slide4">
+        <div class="overlay" id="overlay1">
+          <img src="./images/more_4_1.png" />
+        </div>
+        <div class="overlay" id="overlay2">
+          <img src="./images/more_4_2.png" />
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        id="slide5"
+        style="background-image: url('images/more_5.png')"
+      >
+        <div class="ai-links">
+          <!-- Cột trái -->
+          <div class="col left">
+            <a
+              href="https://www.europarl.europa.eu/cmsdata/196377/AI%20HLEG_Ethics%20Guidelines%20for%20Trustworthy%20AI.pdf"
+              target="_blank"
+            >
+              https://www.europarl.europa.eu/cmsdata/196377/AI%20HLEG_Ethics%20Guidelines%20for%20Trustworthy%20AI.pdf
+            </a>
+            <a
+              href="https://unesdoc.unesco.org/ark:/48223/pf0000368303"
+              target="_blank"
+            >
+              https://unesdoc.unesco.org/ark:/48223/pf0000368303
+            </a>
+          </div>
+
+          <!-- Cột phải -->
+          <div class="col right">
+            <a
+              href="https://www.unesco.org/en/articles/ai-competency-framework-students"
+              target="_blank"
+            >
+              https://www.unesco.org/en/articles/ai-competency-framework-students
+            </a>
+            <a
+              href="https://ia800501.us.archive.org/5/items/superintelligence-paths-dangers-strategies-by-nick-bostrom/superintelligence-paths-dangers-strategies-by-nick-bostrom.pdf"
+              target="_blank"
+            >
+              https://ia800501.us.archive.org/5/items/superintelligence-paths-dangers-strategies-by-nick-bostrom/superintelligence-paths-dangers-strategies-by-nick-bostrom.pdf
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="prev" class="arrow" onclick="prevSlide()">&#10094;</div>
+    <div id="next" class="arrow" onclick="nextSlide()">&#10095;</div>
+
+    <script>
+      let currentSlide = 0,
+        stage = 0;
+      const slider = document.getElementById("slider"),
+        o1 = document.getElementById("overlay1"),
+        o2 = document.getElementById("overlay2");
+
+      function goToSlide(i) {
+        if (i < 0) i = 0;
+        if (i > 4) i = 4;
+        currentSlide = i;
+        slider.style.transform = `translateX(-${i * 100}vw)`;
+        if (i !== 3) {
+          o1.className = "overlay";
+          o2.className = "overlay";
+          stage = 0;
+        }
+      }
+
+      function nextSlide() {
+        if (currentSlide === 3) {
+          if (stage === 0) {
+            o1.classList.add("show");
+            stage = 1;
+          } else if (stage === 1) {
+            o1.classList.replace("show", "hide");
+            stage = 2;
+          } else if (stage === 2) {
+            o2.classList.add("show");
+            stage = 3;
+          } else if (stage === 3) {
+            o2.classList.replace("show", "hide");
+            stage = 4;
+          } else if (stage === 4) {
+            // ✅ Khi hoàn tất overlay, chuyển qua slide 5
+            goToSlide(4);
+            stage = 0;
+          }
+        } else {
+          goToSlide(currentSlide + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 0) goToSlide(currentSlide - 1);
+      }
+
+      function goHome() {
+        window.location.href = "index.html"; // Thay bằng trang chủ của bạn
+      }
+
+      let startX = 0;
+      slider.addEventListener(
+        "touchstart",
+        (e) => (startX = e.touches[0].clientX)
+      );
+      slider.addEventListener("touchend", (e) => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextSlide();
+        if (endX - startX > 50) prevSlide();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") nextSlide();
+        if (e.key === "ArrowLeft") prevSlide();
+      });
+    </script>
+  </body>
+</html>

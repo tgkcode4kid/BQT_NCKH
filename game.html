@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Play Game</title>
+    <link rel="stylesheet" href="css/game.css" />
+  </head>
+  <body>
+    <button class="back-btn" id="backBtn">← BACK</button>
+    <!-- Màn 1: LET’S PLAY GAME -->
+    <section class="game-intro" id="intro">
+      <div class="intro-content">
+        <h1>LET’S PLAY GAME</h1>
+        <p>nhấn vào màn hình để tiếp tục</p>
+      </div>
+      <button class="next-btn" id="nextBtn">NEXT ▶</button>
+    </section>
+
+    <!-- Màn 2: THỂ LỆ GAME -->
+    <section class="game-rules hidden" id="rules">
+      <div class="transition-overlay" id="transition"></div>
+      <img
+        src="./images/queen_dol.png"
+        alt="Dolphin"
+        class="dolphin hidden"
+        id="dolphin"
+      />
+      <h2 class="rule-text">THỂ LỆ GAME</h2>
+      <p class="rule-hint">Nhấn vào màn hình hoặc nút "BẮT ĐẦU" để chơi</p>
+      <button class="next-btn" id="startGameBtn">BẮT ĐẦU ▶</button>
+      <div class="subtitles" id="subtitle"></div>
+      <audio id="dolphinSound" src="./audio/3-1.m4a"></audio>
+    </section>
+
+    <!-- Màn 3: TRÒ CHƠI -->
+    <section class="game-play hidden" id="gamePlay">
+      <div class="game-container">
+        <!-- Thanh tiến trình -->
+        <div class="progress-wrapper">
+          <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+            <img src="./images/fish1.png" alt="Fish" class="fish" id="fish" />
+          </div>
+        </div>
+
+        <!-- Con cá lớn bơi trong bể -->
+        <div class="big-fish-container">
+          <img
+            src="./images/fish1.png"
+            alt="Big Fish"
+            class="big-fish"
+            id="bigFish"
+          />
+        </div>
+
+        <!-- Các nút trả lời -->
+        <div class="answers">
+          <button class="answer-btn" data-correct="true">HÃY</button>
+          <button class="answer-btn" data-correct="false">KHÔNG</button>
+          <button class="answer-btn" data-correct="true">CÓ</button>
+        </div>
+      </div>
+
+      <!-- <audio id="evolveSound" src="/audio/evolve.mp3"></audio> -->
+    </section>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>
